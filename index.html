@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação e adapta o site a telas de celulares e computadores. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Fotografia</title>
+    <!-- Conecta o arquivo de estilos CSS a esta página. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho com o título e o menu de navegação. -->
+    <header id="inicio" class="cabecalho">
+        <h1>Portfólio de Fotografia</h1>
+        <p class="subtitulo">Momentos, cores e histórias em imagens.</p>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Área principal que apresenta as fotografias. -->
+    <main>
+        <section id="galeria" class="secao">
+            <h2>Galeria de fotografias</h2>
+            <p class="instrucao">Clique em uma foto para destacar ou remover o destaque.</p>
+
+            <div class="gallery">
+                <!-- Cada cartão possui uma imagem, uma descrição e um identificador. -->
+                <article class="image" id="image1" tabindex="0" role="button"
+                         aria-pressed="false" aria-label="Destacar fotografia de montanhas">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                         alt="Paisagem natural com montanhas e céu">
+                    <h3>Natureza</h3>
+                    <p>A beleza dos grandes espaços.</p>
+                </article>
+
+                <article class="image" id="image2" tabindex="0" role="button"
+                         aria-pressed="false" aria-label="Destacar fotografia de arquitetura">
+                    <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=80"
+                         alt="Edifício com arquitetura contemporânea">
+                    <h3>Arquitetura</h3>
+                    <p>Formas, linhas e perspectivas.</p>
+                </article>
+
+                <article class="image" id="image3" tabindex="0" role="button"
+                         aria-pressed="false" aria-label="Destacar fotografia do mar">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"
+                         alt="Praia com mar azul e areia">
+                    <h3>Viagens</h3>
+                    <p>Lugares que viram lembranças.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Texto informativo para a seção Sobre. -->
+        <section id="sobre" class="secao sobre">
+            <h2>Sobre o portfólio</h2>
+            <p>Este espaço reúne fotografias e demonstra como HTML, CSS e JavaScript
+               podem trabalhar juntos para criar uma experiência interativa.</p>
+        </section>
+
+        <!-- Área de contato demonstrativa, sem envio de formulário. -->
+        <section id="contato" class="secao contato">
+            <h2>Contato</h2>
+            <p>Entre em contato para conversar sobre projetos fotográficos.</p>
+            <a class="botao-contato" href="mailto:contato@exemplo.com">Enviar e-mail</a>
+        </section>
+    </main>
+
+    <!-- Rodapé do site. -->
+    <footer>
+        <p>&copy; 2026 Portfólio de Fotografia — Projeto educacional.</p>
+    </footer>
+
+    <!-- Carrega o JavaScript ao final para que os elementos HTML já existam. -->
+    <script src="script.js"></script>
+</body>
+</html>

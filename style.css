@@ -1,0 +1,249 @@
+/* =========================
+   1. ESTILOS GERAIS
+   ========================= */
+
+/* Remove margens padrão e facilita o cálculo dos tamanhos dos elementos. */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Faz a navegação entre seções deslizar suavemente. */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f4f4f4;
+}
+
+/* =========================
+   2. CABEÇALHO E MENU
+   ========================= */
+
+.cabecalho {
+    padding: 30px 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #263238;
+    overflow: hidden; /* Evita que o título animado crie rolagem horizontal. */
+}
+
+h1 {
+    margin: 0;
+    animation: slideIn 1.2s ease-out; /* Anima o título ao abrir a página. */
+}
+
+.subtitulo {
+    margin: 8px 0 20px;
+    color: #dce4e8;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Retira os marcadores da lista. */
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* A transição suaviza a cor e o movimento do link. */
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: #ff6347;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   3. GALERIA
+   ========================= */
+
+.secao {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+
+.secao h2 {
+    text-align: center;
+    color: #263238;
+}
+
+.instrucao {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.image {
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+    cursor: pointer;
+    animation: fadeIn 0.9s ease-out both;
+    transition: transform 0.4s ease, opacity 0.3s ease,
+                border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Pequenos atrasos deixam a entrada dos cartões mais natural. */
+#image2 {
+    animation-delay: 0.15s;
+}
+
+#image3 {
+    animation-delay: 0.3s;
+}
+
+.image:hover,
+.image:focus-visible {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+    outline: none;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Mantém a foto preenchendo o espaço sem deformar. */
+    transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.image:hover img {
+    transform: scale(1.06);
+}
+
+.image h3,
+.image p {
+    margin: 12px 16px;
+}
+
+.image p {
+    margin-top: 0;
+    color: #555;
+}
+
+/* Classe adicionada/removida pelo JavaScript quando a foto é clicada. */
+.image.selecionada {
+    border-color: #ff6347;
+    background-color: #fff0ec;
+    box-shadow: 0 0 0 3px rgb(255 99 71 / 20%);
+}
+
+/* =========================
+   4. OUTRAS SEÇÕES E RODAPÉ
+   ========================= */
+
+.sobre,
+.contato {
+    text-align: center;
+}
+
+.botao-contato {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 6px;
+    color: white;
+    background-color: #263238;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-contato:hover,
+.botao-contato:focus-visible {
+    background-color: #ff6347;
+    transform: translateY(-2px);
+}
+
+footer {
+    padding: 18px;
+    text-align: center;
+    color: white;
+    background-color: #263238;
+}
+
+/* =========================
+   5. ANIMAÇÕES COM KEYFRAMES
+   ========================= */
+
+/* O título começa à esquerda e desliza até sua posição original. */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Os cartões começam menores e transparentes, depois aparecem suavemente. */
+@keyframes fadeIn {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   6. RESPONSIVIDADE
+   ========================= */
+
+/* Em telas menores, apresenta duas colunas na galeria. */
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Em celulares, apresenta uma coluna e reduz a altura das fotos. */
+@media (max-width: 520px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .image img {
+        height: 200px;
+    }
+
+    .cabecalho {
+        padding: 24px 12px;
+    }
+}
+
+/* Respeita a preferência do usuário por movimento reduzido. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
